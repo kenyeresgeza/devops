@@ -1,1 +1,1 @@
-# edureka-devops
+# Kubernetes YAML examples
