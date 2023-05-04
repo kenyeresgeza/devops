@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingres
+  labels:
+    name: my-ingress
+  annotations:
+    kubertenes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: app.info
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /app
+        backend:
+          service:
+            name: my-nginx-service
+            port: 
+              number: 8787
+
